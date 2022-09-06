@@ -16,11 +16,21 @@ def home_page():
     return portal_clicked() if ip in ips else render_template("index.html")
 
 
+@app.route("/confirm")
+def confirm():
+    portal_number = request.args.get("id")
+    return (
+        render_template("confirm.html", portal_id=portal_number)
+        if portal_number
+        else render_template("404.html")
+    )
+
+
 @app.route("/portal")
 def portal_clicked():
     portal_number = request.args.get("id")
     if not portal_number:
-        return "404."
+        return render_template("404.html")
     ip = request.remote_addr
     random_booking_id = "".join(
         [choice(string.ascii_letters + string.digits) for _ in range(10)]
@@ -36,11 +46,11 @@ def portal_clicked():
 def canceller():
     portal_number = request.args.get("id")
     if not portal_number:
-        return "404."
+        return render_template("404.html")
     ip = request.remote_addr
     if ip in list(ips.keys()):
         ips.pop(ip)
     return redirect("/")
 
 
-app.run(debug=True)
+app.run(debug=True, port=8080)
