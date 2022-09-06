@@ -8,7 +8,7 @@
   background-color: azure;
 }
 
-.location {
+.price {
   color: grey;
   font-size: 22px;
 }
@@ -39,7 +39,7 @@ header{
   width: auto;
 }
 body{
-  background-color: #160d5a;
+  background-color: #040119;
 }
 table{
   align-self: center;
@@ -51,14 +51,17 @@ table{
 tr{
   padding-top: 5px;
   width: auto;
+  height: max-content;
 }
 td{
   padding-right: 10px;
   padding-left: 10px;
+  height:inherit;
 }
 #p{
   align-self: center;
   text-align: center;
+  color:blanchedalmond;
 }
 img{
   width: auto;
@@ -69,4 +72,9 @@ button{
 }
 body{
   width: 100%;
+}
+#land{
+  align-self: center;
+  text-align: center;
+
 }
