@@ -1,6 +1,7 @@
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
+  width: auto;
   margin: auto;
   text-align: center;
   font-family: arial;
@@ -30,18 +31,42 @@
 #h{
   color: white;
   text-align:center;
+  padding-top: 10px;
 }
 header{
   background-color: black;
+  height: 84px;
+  width: auto;
 }
 body{
-  background-color: #020011;
+  background-color: #160d5a;
 }
 table{
   align-self: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10%;
+  padding-left: 10%;
 }
-p{
-  
+tr{
+  padding-top: 5px;
+  width: auto;
+}
+td{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#p{
   align-self: center;
   text-align: center;
+}
+img{
+  width: auto;
+  align-self: center;
+}
+button{
+  align-self: center;
+}
+body{
+  width: 100%;
 }
