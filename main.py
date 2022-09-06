@@ -12,7 +12,7 @@ ips = {}
 def home_page():
     ip = request.environ["REMOTE_ADDR"]
     print("IP:", ip)
-    return portal_clicked() if ip in ips else render_template("index.html")
+    return portal_clicked() if ip in ips else render_template("page.html")
 
 
 @app.route("/portal")

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/style.css">
+        <title>Bifrost Inc.</title>
+    </head>
+    <body>
+        <header><h1 id="h">Bifrost Inc.</h1></header>
+        <p id="p">
+            Thank you for your purchase! </br>
+            Your Booking ID: {{booking_id}} </br> </br>
+            Portal Number: {{portal_number}} </br> </br>
+            <a href="https://apis.xditya.me/qr/gen?text={{booking_id}}" download="Booking_{{booking_id}}">
+                <img src="https://apis.xditya.me/qr/gen?text={{booking_id}}" />
+            </a>
+        </br></br>
+            <button>Cancel Order</button>
+        </p>
+    </body>
+</html>
