@@ -15,15 +15,20 @@ def home_page():
     return portal_clicked() if ip in ips else render_template("index.html")
 
 
-@app.route("/portal2")
+@app.route("/portal")
 def portal_clicked():
+    portal_number = request.args.get("id")
+    if not portal_number:
+        return "404."
     ip = request.remote_addr
     random_booking_id = "".join(
         [choice(string.ascii_letters + string.digits) for _ in range(10)]
     )
     if ip not in list(ips.keys()):
         ips[ip] = random_booking_id
-    return render_template("landing.html", booking_id=f"{random_booking_id}")
+    return render_template(
+        "landing.html", booking_id=random_booking_id, portal_number=portal_number
+    )
 
 
 app.run(debug=True)
