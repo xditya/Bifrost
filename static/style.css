@@ -4,6 +4,7 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  background-color: azure;
 }
 
 .location {
@@ -25,4 +26,22 @@
 
 .card button:hover {
   opacity: 0.7;
+}
+#h{
+  color: white;
+  text-align:center;
+}
+header{
+  background-color: black;
+}
+body{
+  background-color: #020011;
+}
+table{
+  align-self: center;
+}
+p{
+  
+  align-self: center;
+  text-align: center;
 }
