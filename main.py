@@ -3,7 +3,8 @@ from random import choice
 
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
+
 
 ips = {}
 
@@ -11,8 +12,8 @@ ips = {}
 @app.route("/")
 def home_page():
     ip = request.environ["REMOTE_ADDR"]
-    print("IP:", ip)
-    return portal_clicked() if ip in ips else render_template("page.html")
+    # print("IP:", ip)
+    return portal_clicked() if ip in ips else render_template("index.html")
 
 
 @app.route("/portal")
@@ -29,7 +30,3 @@ def portal_clicked():
     return render_template(
         "landing.html", booking_id=random_booking_id, portal_number=portal_number
     )
-
-
-app.run(debug=True)
-# do not use app.run in production
