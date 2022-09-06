@@ -1,7 +1,7 @@
 import string
 from random import choice
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__, static_folder="static")
 
@@ -30,3 +30,17 @@ def portal_clicked():
     return render_template(
         "landing.html", booking_id=random_booking_id, portal_number=portal_number
     )
+
+
+@app.route("/cancel")
+def canceller():
+    portal_number = request.args.get("id")
+    if not portal_number:
+        return "404."
+    ip = request.remote_addr
+    if ip in list(ips.keys()):
+        ips.pop(ip)
+    return redirect("/")
+
+
+app.run(debug=True)
