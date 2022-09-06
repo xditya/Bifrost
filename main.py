@@ -1,8 +1,11 @@
+import string
+from random import choice
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-ips = []
+ips = {}
 
 
 @app.route("/")
@@ -15,9 +18,12 @@ def home_page():
 @app.route("/portal2")
 def portal_clicked():
     ip = request.remote_addr
-    if ip not in ips:
-        ips.append(ip)
-    return render_template("landing.html", booking_id=f"#{len(ips) + 1}")
+    random_booking_id = "".join(
+        [choice(string.ascii_letters + string.digits) for _ in range(10)]
+    )
+    if ip not in list(ips.keys()):
+        ips[ip] = random_booking_id
+    return render_template("landing.html", booking_id=f"{random_booking_id}")
 
 
 app.run(debug=True)
